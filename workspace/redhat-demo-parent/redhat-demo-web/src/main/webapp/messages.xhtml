@@ -1,0 +1,61 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" template="layout/template.xhtml">
+
+	<ui:define name="body">
+		<h2>Add a message</h2>
+		<f:view>
+			<h:form id="messageForm">
+				<div><h:panelGrid columns="2">
+					<h:outputLabel for="title">Title</h:outputLabel>
+					<h:inputText id="title" value="#{messageForm.title}" />
+					<h:outputLabel for="text">Text</h:outputLabel>
+					<h:inputText id="text" value="#{messageForm.text}" />
+				</h:panelGrid></div>
+				<div><h:commandButton id="submit" value="Save"
+					action="#{messageManager.save}" /></div>
+			</h:form>
+
+			<h:form>
+				<h2>Message List</h2>
+				<h:outputText value="No messages to display"
+					rendered="#{messageList.rowCount==0}" />
+				<h:dataTable var="msg" value="#{messageList}"
+					rendered="#{messageList.rowCount>0}">
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Read" />
+						</f:facet>
+						<h:selectBooleanCheckbox value="#{msg.read}" disabled="true" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Title" />
+						</f:facet>
+						<h:commandLink value="#{msg.title}"
+							action="#{messageManager.select}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Date/Time" />
+						</f:facet>
+						<h:outputText value="#{msg.datetime}">
+							<f:convertDateTime type="both" dateStyle="medium"
+								timeStyle="short" />
+						</h:outputText>
+					</h:column>
+					<h:column>
+						<h:commandButton value="Delete" action="#{messageManager.delete}" />
+					</h:column>
+				</h:dataTable>
+				<h3><h:outputText value="#{message.title}" /></h3>
+				<div><h:outputText value="#{message.text}" /></div>
+			</h:form>
+		</f:view>
+	</ui:define>
+</ui:composition>
