@@ -4,12 +4,12 @@
 	<parent>
 		<groupId>ar.com.demo</groupId>
 		<artifactId>redhat-demo-parent</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.1-SNAPSHOT</version>
 	</parent>
 	<groupId>ar.com.demo</groupId>
 	<artifactId>${module.ear}</artifactId>
 	<name>${module.ear}</name>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<url>http://maven.apache.org</url>
 	<packaging>ear</packaging>
 	<dependencies>

@@ -4,11 +4,11 @@
 	<parent>
 		<groupId>ar.com.demo</groupId>
 		<artifactId>redhat-demo-parent</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.1-SNAPSHOT</version>
 	</parent>
 	<groupId>${demo.groupId}</groupId>
 	<artifactId>${module.model}</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<name>${module.model}</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
